@@ -10,7 +10,6 @@ function wp_clean_up_page(){
 <h2>WP Clean Up</h2>
 
 <?php
-
 function wp_clean_up($type){
 	global $wpdb;
 	switch($type){
@@ -72,7 +71,6 @@ function wp_clean_up_count($type){
 	return $count;
 }
 
-
 	$wcu_message = '';
 
 	if(isset($_POST['wp_clean_up_revision'])){
@@ -113,6 +111,10 @@ function wp_clean_up_count($type){
 		wp_clean_up('spam');
 		wp_clean_up('trash');
 		$wcu_message = __("All redundant data deleted!","WP-Clean-Up");
+	}
+
+	if(isset($_POST['wp_clean_up_optimize'])){
+		$wcu_message = __("Database Optimized!","WP-Clean-Up");
 	}
 
 	if($wcu_message != ''){
@@ -217,7 +219,6 @@ function wp_clean_up_count($type){
 	</tbody>
 </table>
 </p>
-
 <p>
 <form action="" method="post">
 	<input type="hidden" name="wp_clean_up_all" value="all" />
@@ -226,6 +227,57 @@ function wp_clean_up_count($type){
 </p>
 <br />
 
+<table class="widefat" style="width:419px;">
+	<thead>
+		<tr>
+			<th scope="col"><?php _e('Table','WP-Clean-Up'); ?></th>
+			<th scope="col"><?php _e('Size','WP-Clean-Up'); ?></th>
+		</tr>
+	</thead>
+	<tbody id="the-list">
+	<?php
+		$total_size = 0;
+		$alternate = " class='alternate'";
+		$wcu_sql = 'SHOW TABLE STATUS FROM '.DB_NAME;
+		$result = mysql_query($wcu_sql);
+		if(mysql_num_rows($result)){
+			while($row = mysql_fetch_assoc($result)){
+				$table_size = $row['Data_length'] + $row['Index_length'];
+				$table_size = $table_size / 1024;
+				$table_size = round($table_size,3);
+
+				$every_size = $row['Data_length'] + $row['Index_length'];
+				$every_size = $every_size / 1024 ;
+				$total_size += $every_size;
+
+				if(isset($_POST['wp_clean_up_optimize'])){
+					$wcu_sql = 'OPTIMIZE TABLE '.$row['Name'];
+					mysql_query($wcu_sql);
+				}
+
+				echo "<tr". $alternate .">
+						<td class='column-name'>". $row['Name'] ."</td>
+						<td class='column-name'>". $table_size ." KB"."</td>
+					</tr>\n";
+				$alternate = (empty($alternate)) ? " class='alternate'" : "";
+			}
+		}
+	?>
+	</tbody>
+	<tfoot>
+		<tr>
+			<th scope="col"><?php _e('Total','WP-Clean-Up'); ?></th>
+			<th scope="col" style="font-family:Tahoma;"><?php echo round($total_size,3).' KB'; ?></th>
+		</tr>
+	</tfoot>
+</table>
+<p>
+<form action="" method="post">
+	<input type="hidden" name="wp_clean_up_optimize" value="optimize" />
+	<input type="submit" class="button-primary" value="<?php _e('Optimize','WP-Clean-Up'); ?>" />
+</form>
+</p>
+<br />
 
 <h3>Related Links</h3>
 1. <a href="http://boliquan.com/wp-clean-up/" target="_blank">WP Clean Up (FAQ)</a> | <a href="http://wordpress.org/extend/plugins/wp-clean-up/" target="_blank">Download</a><br />

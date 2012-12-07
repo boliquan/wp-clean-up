@@ -1,11 +1,11 @@
 === WP Clean Up ===
 Contributors: boliquan
 Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=SKA6TPPWSATKG&item_name=BoLiQuan&no_shipping=0&no_note=1&tax=0&currency_code=USD&lc=CA&bn=PP%2dDonationsBF&charset=UTF%2d8
-Tags: wp clean up,clean,cleaner,cleanup,database,mysql,comments,posts,post revisions,optimize,optimize database,revision,draft,auto draft,moderated,spam,trash
+Tags: wp clean up,wp cleanup,clean,cleaner,cleanup,database,mysql,comments,posts,post revisions,delete revision,wp cleaner,optimize,optimize database,revision,draft,auto draft,moderated,spam,trash
 License: GPLv2
 Requires at least: 2.7
 Tested up to: 3.4.2
-Stable tag: 1.1.1
+Stable tag: 1.2.0
 
 WP Clean Up can help us to clean up the wordpress database by removing "revision" "draft" "auto draft" and so on.
 
@@ -13,6 +13,7 @@ WP Clean Up can help us to clean up the wordpress database by removing "revision
 == Description ==
 
 WP Clean Up can help us to clean up the wordpress database by removing "revision" "draft" "auto draft" "moderated comments" "spam comments" "trash comments".
+It allows you to optimize your WordPress database without phpMyAdmin.
 It adds a settings page to "Dashboard"->"Settings"->"WP Clean Up" where you can clean up the wordpress database.
 It allows you to remove the redundant data within few clicks.
 It is a effective tool to keep your database clean and surely save a lot of space of your MySQL Database.
@@ -47,6 +48,10 @@ Related Links:
 
 
 == Changelog ==
+
+= 1.2.0 =
+
+* It allows you to optimize your WordPress database without phpMyAdmin
 
 = 1.1.1 =
 
