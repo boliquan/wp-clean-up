@@ -1,150 +1,230 @@
 <?php
 function wp_clean_up_admin() {
-	add_options_page('WP Clean Up Page', 'WP Clean Up','manage_options', __FILE__, 'wp_clean_up_page');
+	add_options_page('WP Clean Up Options', 'WP Clean Up','manage_options', __FILE__, 'wp_clean_up_page');
 }
 function wp_clean_up_page(){
-	if(isset($_POST['wp_slug_translate_revision'])){
-		if($_POST['wp_slug_translate_revision']=='revision'){
-			wp_clean_up('revision');
-			echo '<div id="message" class="updated fade"><p><strong>' . __("All revisions deleted!","WP-Clean-Up") . '</strong></p></div>';
-		}
-	}
-
-	if(isset($_POST['wp_slug_translate_draft'])){
-		if($_POST['wp_slug_translate_draft']=='draft'){
-			wp_clean_up('draft');
-			echo '<div id="message" class="updated fade"><p><strong>' . __("All drafts deleted!","WP-Clean-Up") . '</strong></p></div>';
-		}
-	}
-
-	if(isset($_POST['wp_slug_translate_autodraft'])){
-		if($_POST['wp_slug_translate_autodraft']=='autodraft'){
-			wp_clean_up('autodraft');
-			echo '<div id="message" class="updated fade"><p><strong>' . __("All autodrafts deleted!","WP-Clean-Up") . '</strong></p></div>';
-		}
-	}
-	
-	if(isset($_POST['wp_slug_translate_moderated'])){
-		if($_POST['wp_slug_translate_moderated']=='moderated'){
-			wp_clean_up('moderated');
-			echo '<div id="message" class="updated fade"><p><strong>' . __("All moderated comments deleted!","WP-Clean-Up") . '</strong></p></div>';
-		}
-	}
-
-	if(isset($_POST['wp_slug_translate_spam'])){
-		if($_POST['wp_slug_translate_spam']=='spam'){
-			wp_clean_up('spam');
-			echo '<div id="message" class="updated fade"><p><strong>' . __("All spam comments deleted!","WP-Clean-Up") . '</strong></p></div>';
-		}
-	}
-
 ?>
 <div class="wrap">
 	
 <?php screen_icon(); ?>
 <h2>WP Clean Up</h2>
-<form action="" method="post">
-<table class="form-table" style="width:400px;">
-	<tr align="left" valign="top">
-		<th style="width:20px;text-align:left;">
-			<?php _e('Type','WP-Clean-Up'); ?>
-		</th>
-		<th style="width:20px;text-align:left;">
-			<?php _e('Count','WP-Clean-Up'); ?>
-		</th>
-		<th style="width:20px;text-align:left;">
-			<?php _e('Operate','WP-Clean-Up'); ?>
-		</th>
-	</tr>
+
+<?php
+
+function wp_clean_up($type){
+	global $wpdb;
+	switch($type){
+		case "revision":
+			$wcu_sql = "DELETE FROM $wpdb->posts WHERE post_type = 'revision'";
+			$wpdb->query($wcu_sql);
+			break;
+		case "draft":
+			$wcu_sql = "DELETE FROM $wpdb->posts WHERE post_status = 'draft'";
+			$wpdb->query($wcu_sql);
+			break;
+		case "autodraft":
+			$wcu_sql = "DELETE FROM $wpdb->posts WHERE post_status = 'auto-draft'";
+			$wpdb->query($wcu_sql);
+			break;
+		case "moderated":
+			$wcu_sql = "DELETE FROM $wpdb->comments WHERE comment_approved = '0'";
+			$wpdb->query($wcu_sql);
+			break;
+		case "spam":
+			$wcu_sql = "DELETE FROM $wpdb->comments WHERE comment_approved = 'spam'";
+			$wpdb->query($wcu_sql);
+			break;
+		case "trash":
+			$wcu_sql = "DELETE FROM $wpdb->comments WHERE comment_approved = 'trash'";
+			$wpdb->query($wcu_sql);
+			break;
+	}
+}
+
+function wp_clean_up_count($type){
+	global $wpdb;
+	switch($type){
+		case "revision":
+			$wcu_sql = "SELECT COUNT(*) FROM $wpdb->posts WHERE post_type = 'revision'";
+			$count = $wpdb->get_var($wcu_sql);
+			break;
+		case "draft":
+			$wcu_sql = "SELECT COUNT(*) FROM $wpdb->posts WHERE post_status = 'draft'";
+			$count = $wpdb->get_var($wcu_sql);
+			break;
+		case "autodraft":
+			$wcu_sql = "SELECT COUNT(*) FROM $wpdb->posts WHERE post_status = 'auto-draft'";
+			$count = $wpdb->get_var($wcu_sql);
+			break;
+		case "moderated":
+			$wcu_sql = "SELECT COUNT(*) FROM $wpdb->comments WHERE comment_approved = '0'";
+			$count = $wpdb->get_var($wcu_sql);
+			break;
+		case "spam":
+			$wcu_sql = "SELECT COUNT(*) FROM $wpdb->comments WHERE comment_approved = 'spam'";
+			$count = $wpdb->get_var($wcu_sql);
+			break;
+		case "trash":
+			$wcu_sql = "SELECT COUNT(*) FROM $wpdb->comments WHERE comment_approved = 'trash'";
+			$count = $wpdb->get_var($wcu_sql);
+			break;
+	}
+	return $count;
+}
+
+
+	$wcu_message = '';
+
+	if(isset($_POST['wp_clean_up_revision'])){
+		wp_clean_up('revision');
+		$wcu_message = __("All revisions deleted!","WP-Clean-Up");
+	}
+
+	if(isset($_POST['wp_clean_up_draft'])){
+		wp_clean_up('draft');
+		$wcu_message = __("All drafts deleted!","WP-Clean-Up");
+	}
+
+	if(isset($_POST['wp_clean_up_autodraft'])){
+		wp_clean_up('autodraft');
+		$wcu_message = __("All autodrafts deleted!","WP-Clean-Up");
+	}
+	
+	if(isset($_POST['wp_clean_up_moderated'])){
+		wp_clean_up('moderated');
+		$wcu_message = __("All moderated comments deleted!","WP-Clean-Up");
+	}
+
+	if(isset($_POST['wp_clean_up_spam'])){
+		wp_clean_up('spam');
+		$wcu_message = __("All spam comments deleted!","WP-Clean-Up");
+	}
+
+	if(isset($_POST['wp_clean_up_trash'])){
+		wp_clean_up('trash');
+		$wcu_message = __("All trash comments deleted!","WP-Clean-Up");
+	}
+
+	if(isset($_POST['wp_clean_up_all'])){
+		wp_clean_up('revision');
+		wp_clean_up('draft');
+		wp_clean_up('autodraft');
+		wp_clean_up('moderated');
+		wp_clean_up('spam');
+		wp_clean_up('trash');
+		$wcu_message = __("All redundant data deleted!","WP-Clean-Up");
+	}
+
+	if($wcu_message != ''){
+		echo '<div id="message" class="updated fade"><p><strong>' . $wcu_message . '</strong></p></div>';
+	}
+?>
+
+<p>
+<table class="widefat" style="width:419px;">
+	<thead>
+		<tr>
+			<th scope="col"><?php _e('Type','WP-Clean-Up'); ?></th>
+			<th scope="col"><?php _e('Count','WP-Clean-Up'); ?></th>
+			<th scope="col"><?php _e('Operate','WP-Clean-Up'); ?></th>
+		</tr>
+	</thead>
+	<tbody id="the-list">
+		<tr class="alternate">
+			<td class="column-name">
+				<?php _e('Revision','WP-Clean-Up'); ?>
+			</td>
+			<td class="column-name">
+				<?php echo wp_clean_up_count('revision'); ?>
+			</td>
+			<td class="column-name">
+				<form action="" method="post">
+					<input type="hidden" name="wp_clean_up_revision" value="revision" />
+					<input type="submit" class="<?php if(wp_clean_up_count('revision')>0){echo 'button-primary';}else{echo 'button';} ?>" value="<?php _e('Delete','WP-Clean-Up'); ?>" />
+				</form>
+			</td>
+		</tr>
+		<tr>
+			<td class="column-name">
+				<?php _e('Draft','WP-Clean-Up'); ?>
+			</td>
+			<td class="column-name">
+				<?php echo wp_clean_up_count('draft'); ?>
+			</td>
+			<td class="column-name">
+				<form action="" method="post">
+					<input type="hidden" name="wp_clean_up_draft" value="draft" />
+					<input type="submit" class="<?php if(wp_clean_up_count('draft')>0){echo 'button-primary';}else{echo 'button';} ?>" value="<?php _e('Delete','WP-Clean-Up'); ?>" />
+				</form>
+			</td>
+		</tr>
+		<tr class="alternate">
+			<td class="column-name">
+				<?php _e('Auto Draft','WP-Clean-Up'); ?>
+			</td>
+			<td class="column-name">
+				<?php echo wp_clean_up_count('autodraft'); ?>
+			</td>
+			<td class="column-name">
+				<form action="" method="post">
+					<input type="hidden" name="wp_clean_up_autodraft" value="autodraft" />
+					<input type="submit" class="<?php if(wp_clean_up_count('autodraft')>0){echo 'button-primary';}else{echo 'button';} ?>" value="<?php _e('Delete','WP-Clean-Up'); ?>" />
+				</form>
+			</td>
+		</tr>
+		<tr>
+			<td class="column-name">
+				<?php _e('Moderated Comments','WP-Clean-Up'); ?>
+			</td>
+			<td class="column-name">
+				<?php echo wp_clean_up_count('moderated'); ?>
+			</td>
+			<td class="column-name">
+				<form action="" method="post">
+					<input type="hidden" name="wp_clean_up_moderated" value="moderated" />
+					<input type="submit" class="<?php if(wp_clean_up_count('moderated')>0){echo 'button-primary';}else{echo 'button';} ?>" value="<?php _e('Delete','WP-Clean-Up'); ?>" />
+				</form>
+			</td>
+		</tr>
+		<tr class="alternate">
+			<td class="column-name">
+				<?php _e('Spam Comments','WP-Clean-Up'); ?>
+			</td>
+			<td class="column-name">
+				<?php echo wp_clean_up_count('spam'); ?>
+			</td>
+			<td class="column-name">
+				<form action="" method="post">
+					<input type="hidden" name="wp_clean_up_spam" value="spam" />
+					<input type="submit" class="<?php if(wp_clean_up_count('spam')>0){echo 'button-primary';}else{echo 'button';} ?>" value="<?php _e('Delete','WP-Clean-Up'); ?>" />
+				</form>
+			</td>
+		</tr>
+		<tr>
+			<td class="column-name">
+				<?php _e('Trash Comments','WP-Clean-Up'); ?>
+			</td>
+			<td class="column-name">
+				<?php echo wp_clean_up_count('trash'); ?>
+			</td>
+			<td class="column-name">
+				<form action="" method="post">
+					<input type="hidden" name="wp_clean_up_trash" value="trash" />
+					<input type="submit" class="<?php if(wp_clean_up_count('trash')>0){echo 'button-primary';}else{echo 'button';} ?>" value="<?php _e('Delete','WP-Clean-Up'); ?>" />
+				</form>
+			</td>
+		</tr>
+	</tbody>
 </table>
-</form>
+</p>
 
-
+<p>
 <form action="" method="post">
-<table class="form-table" style="width:400px;">
-	<tr align="left" valign="top">
-		<td style="width:auto;text-align:left;">
-			<?php _e('Revision','WP-Clean-Up'); ?>
-		</td>
-		<td style="width:auto;text-align:left;">
-			<?php echo wp_clean_up_count('revision'); ?>
-		</td>
-		<td style="width:auto;text-align:left;">
-			<input type="hidden" name="wp_slug_translate_revision" value="revision" />
-			<input type="submit" class="button-primary" value="<?php _e('Delete','WP-Clean-Up'); ?>" />
-		</td>
-	</tr>
-</table>
+	<input type="hidden" name="wp_clean_up_all" value="all" />
+	<input type="submit" class="button-primary" value="<?php _e('Delete All','WP-Clean-Up'); ?>" />
 </form>
-
-<form action="" method="post">
-<table class="form-table" style="width:400px;">
-	<tr>
-		<td style="width:auto;">
-			<?php _e('Draft','WP-Clean-Up'); ?>
-		</td>
-		<td style="width:auto;">
-			<?php echo wp_clean_up_count('draft'); ?>
-		</td>
-		<td style="width:auto;">
-			<input type="hidden" name="wp_slug_translate_draft" value="draft" />
-			<input type="submit" class="button-primary" value="<?php _e('Delete','WP-Clean-Up'); ?>" />
-		</td>
-	</tr>
-</table>
-</form>
-
-<form action="" method="post">
-<table class="form-table" style="width:400px;">
-	<tr>
-		<td>
-			<?php _e('Auto Draft','WP-Clean-Up'); ?>
-		</td>
-		<td>
-			<?php echo wp_clean_up_count('autodraft'); ?>
-		</td>
-		<td>
-			<input type="hidden" name="wp_slug_translate_autodraft" value="autodraft" />
-			<input type="submit" class="button-primary" value="<?php _e('Delete','WP-Clean-Up'); ?>" />
-		</td>
-	</tr>
-</table>
-</form>
-
-<form action="" method="post">
-<table class="form-table" style="width:400px;">
-	<tr>
-		<td>
-			<?php _e('Moderated Comments','WP-Clean-Up'); ?>
-		</td>
-		<td>
-			<?php echo wp_clean_up_count('moderated'); ?>
-		</td>
-		<td>
-			<input type="hidden" name="wp_slug_translate_moderated" value="moderated" />
-			<input type="submit" class="button-primary" value="<?php _e('Delete','WP-Clean-Up'); ?>" />
-		</td>
-	</tr>
-</table>
-</form>
-
-<form action="" method="post">
-<table class="form-table" style="width:400px;">
-	<tr>
-		<td>
-			<?php _e('Spam Comments','WP-Clean-Up'); ?>
-		</td>
-		<td>
-			<?php echo wp_clean_up_count('spam'); ?>
-		</td>
-		<td>
-			<input type="hidden" name="wp_slug_translate_spam" value="spam" />
-			<input type="submit" class="button-primary" value="<?php _e('Delete','WP-Clean-Up'); ?>" />
-		</td>
-	</tr>
-</table>
-</form>
-
+</p>
+<br />
 
 
 <h3>Related Links</h3>

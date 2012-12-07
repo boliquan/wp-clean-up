@@ -1,21 +1,32 @@
 === WP Clean Up ===
 Contributors: boliquan
 Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=SKA6TPPWSATKG&item_name=BoLiQuan&no_shipping=0&no_note=1&tax=0&currency_code=USD&lc=CA&bn=PP%2dDonationsBF&charset=UTF%2d8
-Tags: wp clean up
+Tags: wp clean up,clean,cleaner,cleanup,database,mysql,comments,posts,post revisions,optimize,optimize database,revision,draft,auto draft,moderated,spam,trash
 License: GPLv2
 Requires at least: 2.7
 Tested up to: 3.4.2
-Stable tag: 1.1.0
+Stable tag: 1.1.1
 
-WP Clean Up can help us to clean up the wordpress database.
+WP Clean Up can help us to clean up the wordpress database by removing "revision" "draft" "auto draft" and so on.
+
 
 == Description ==
 
-WP Clean Up can help us to clean up the wordpress database.
+WP Clean Up can help us to clean up the wordpress database by removing "revision" "draft" "auto draft" "moderated comments" "spam comments" "trash comments".
+It adds a settings page to "Dashboard"->"Settings"->"WP Clean Up" where you can clean up the wordpress database.
+It allows you to remove the redundant data within few clicks.
+It is a effective tool to keep your database clean and surely save a lot of space of your MySQL Database.
+
+= Usage =
+
+1. Download and extract `wp-clean-up.zip` to `wp-content/plugins/`
+2. Activate the plugin through the 'Plugins' menu in WordPress.
+3. "Dashboard"->"Settings"->"WP Clean Up"
+4. For more information of this plugin, please visit: [Plugin Homepage](http://boliquan.com/wp-clean-up/ "WP Clean Up").
 
 Related Links:
 
-* <a href="http://boliquan.com/wp-clean-up/">WP Clean Up</a> | <a href="http://wordpress.org/extend/plugins/wp-clean-up/">Download</a>
+* <a href="http://boliquan.com/wp-clean-up/">WP Clean Up (FAQ)</a> | <a href="http://wordpress.org/extend/plugins/wp-clean-up/">Download</a>
 * <a href="http://boliquan.com/wp-smtp/">WP SMTP</a> | <a href="http://wordpress.org/extend/plugins/wp-smtp/">Download</a>
 * <a href="http://boliquan.com/wp-anti-spam/">WP Anti Spam</a> | <a href="http://wordpress.org/extend/plugins/wp-anti-spam/">Download</a>
 * <a href="http://boliquan.com/wp-code-highlight/">WP Code Highlight</a> | <a href="http://wordpress.org/extend/plugins/wp-code-highlight/">Download</a>
@@ -29,11 +40,17 @@ Related Links:
 
 == Installation ==
 
-1. Download and extract `wp-smtp.zip` to `wp-content/plugins/`
+1. Download and extract `wp-clean-up.zip` to `wp-content/plugins/`
 2. Activate the plugin through the 'Plugins' menu in WordPress.
 3. "Dashboard"->"Settings"->"WP Clean Up"
+4. For more information of this plugin, please visit: [Plugin Homepage](http://boliquan.com/wp-clean-up/ "WP Clean Up").
+
 
 == Changelog ==
+
+= 1.1.1 =
+
+* Some optimization
 
 = 1.1.0 =
 
