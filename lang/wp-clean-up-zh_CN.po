@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: WP-Clean-Up Languages\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-12-07 15:29+0800\n"
-"PO-Revision-Date: 2012-12-07 15:29+0800\n"
+"POT-Creation-Date: 2012-12-12 17:44+0800\n"
+"PO-Revision-Date: 2012-12-12 17:49+0800\n"
 "Last-Translator: 夜光 <berttung(#)gmail.com>\n"
 "Language-Team: 玻璃泉BoLiQuan.COM <berttung(#)gmail.com>\n"
 "MIME-Version: 1.0\n"
@@ -20,100 +20,136 @@ msgstr ""
 msgid "Settings"
 msgstr "设置"
 
-#: F:\xampp\htdocs\wordpress\wp-content\plugins\wp-clean-up/wp_clean_up_admin.php:78
+#: F:\xampp\htdocs\wordpress\wp-content\plugins\wp-clean-up/wp_clean_up_admin.php:112
 msgid "All revisions deleted!"
 msgstr "所有修订版本已删除！"
 
-#: F:\xampp\htdocs\wordpress\wp-content\plugins\wp-clean-up/wp_clean_up_admin.php:83
+#: F:\xampp\htdocs\wordpress\wp-content\plugins\wp-clean-up/wp_clean_up_admin.php:117
 msgid "All drafts deleted!"
 msgstr "所有草稿已删除！"
 
-#: F:\xampp\htdocs\wordpress\wp-content\plugins\wp-clean-up/wp_clean_up_admin.php:88
+#: F:\xampp\htdocs\wordpress\wp-content\plugins\wp-clean-up/wp_clean_up_admin.php:122
 msgid "All autodrafts deleted!"
 msgstr "所有自动草稿已删除！"
 
-#: F:\xampp\htdocs\wordpress\wp-content\plugins\wp-clean-up/wp_clean_up_admin.php:93
+#: F:\xampp\htdocs\wordpress\wp-content\plugins\wp-clean-up/wp_clean_up_admin.php:127
 msgid "All moderated comments deleted!"
 msgstr "所有待审评论已删除！"
 
-#: F:\xampp\htdocs\wordpress\wp-content\plugins\wp-clean-up/wp_clean_up_admin.php:98
+#: F:\xampp\htdocs\wordpress\wp-content\plugins\wp-clean-up/wp_clean_up_admin.php:132
 msgid "All spam comments deleted!"
 msgstr "所有垃圾评论已删除！"
 
-#: F:\xampp\htdocs\wordpress\wp-content\plugins\wp-clean-up/wp_clean_up_admin.php:103
+#: F:\xampp\htdocs\wordpress\wp-content\plugins\wp-clean-up/wp_clean_up_admin.php:137
 msgid "All trash comments deleted!"
 msgstr "所有回收站评论已删除！"
 
-#: F:\xampp\htdocs\wordpress\wp-content\plugins\wp-clean-up/wp_clean_up_admin.php:113
+#: F:\xampp\htdocs\wordpress\wp-content\plugins\wp-clean-up/wp_clean_up_admin.php:142
+msgid "All orphan postmeta deleted!"
+msgstr "所有孤立的文章元信息已删除！"
+
+#: F:\xampp\htdocs\wordpress\wp-content\plugins\wp-clean-up/wp_clean_up_admin.php:147
+msgid "All orphan commentmeta deleted!"
+msgstr "所有孤立的评论元信息已删除！"
+
+#: F:\xampp\htdocs\wordpress\wp-content\plugins\wp-clean-up/wp_clean_up_admin.php:152
+msgid "All orphan relationships deleted!"
+msgstr "所有孤立的关系信息已删除！"
+
+#: F:\xampp\htdocs\wordpress\wp-content\plugins\wp-clean-up/wp_clean_up_admin.php:157
+msgid "All dashboard transient feed deleted!"
+msgstr "所有控制板订阅缓存已删除！"
+
+#: F:\xampp\htdocs\wordpress\wp-content\plugins\wp-clean-up/wp_clean_up_admin.php:171
 msgid "All redundant data deleted!"
 msgstr "所有冗余数据已删除！"
 
-#: F:\xampp\htdocs\wordpress\wp-content\plugins\wp-clean-up/wp_clean_up_admin.php:117
+#: F:\xampp\htdocs\wordpress\wp-content\plugins\wp-clean-up/wp_clean_up_admin.php:175
 msgid "Database Optimized!"
 msgstr "数据库已优化！"
 
-#: F:\xampp\htdocs\wordpress\wp-content\plugins\wp-clean-up/wp_clean_up_admin.php:129
+#: F:\xampp\htdocs\wordpress\wp-content\plugins\wp-clean-up/wp_clean_up_admin.php:187
 msgid "Type"
 msgstr "类型"
 
-#: F:\xampp\htdocs\wordpress\wp-content\plugins\wp-clean-up/wp_clean_up_admin.php:130
+#: F:\xampp\htdocs\wordpress\wp-content\plugins\wp-clean-up/wp_clean_up_admin.php:188
 msgid "Count"
 msgstr "数量"
 
-#: F:\xampp\htdocs\wordpress\wp-content\plugins\wp-clean-up/wp_clean_up_admin.php:131
+#: F:\xampp\htdocs\wordpress\wp-content\plugins\wp-clean-up/wp_clean_up_admin.php:189
 msgid "Operate"
 msgstr "操作"
 
-#: F:\xampp\htdocs\wordpress\wp-content\plugins\wp-clean-up/wp_clean_up_admin.php:137
+#: F:\xampp\htdocs\wordpress\wp-content\plugins\wp-clean-up/wp_clean_up_admin.php:195
 msgid "Revision"
 msgstr "修订版本"
 
-#: F:\xampp\htdocs\wordpress\wp-content\plugins\wp-clean-up/wp_clean_up_admin.php:145
-#: F:\xampp\htdocs\wordpress\wp-content\plugins\wp-clean-up/wp_clean_up_admin.php:159
-#: F:\xampp\htdocs\wordpress\wp-content\plugins\wp-clean-up/wp_clean_up_admin.php:173
-#: F:\xampp\htdocs\wordpress\wp-content\plugins\wp-clean-up/wp_clean_up_admin.php:187
-#: F:\xampp\htdocs\wordpress\wp-content\plugins\wp-clean-up/wp_clean_up_admin.php:201
-#: F:\xampp\htdocs\wordpress\wp-content\plugins\wp-clean-up/wp_clean_up_admin.php:215
+#: F:\xampp\htdocs\wordpress\wp-content\plugins\wp-clean-up/wp_clean_up_admin.php:203
+#: F:\xampp\htdocs\wordpress\wp-content\plugins\wp-clean-up/wp_clean_up_admin.php:217
+#: F:\xampp\htdocs\wordpress\wp-content\plugins\wp-clean-up/wp_clean_up_admin.php:231
+#: F:\xampp\htdocs\wordpress\wp-content\plugins\wp-clean-up/wp_clean_up_admin.php:245
+#: F:\xampp\htdocs\wordpress\wp-content\plugins\wp-clean-up/wp_clean_up_admin.php:259
+#: F:\xampp\htdocs\wordpress\wp-content\plugins\wp-clean-up/wp_clean_up_admin.php:273
+#: F:\xampp\htdocs\wordpress\wp-content\plugins\wp-clean-up/wp_clean_up_admin.php:287
+#: F:\xampp\htdocs\wordpress\wp-content\plugins\wp-clean-up/wp_clean_up_admin.php:301
+#: F:\xampp\htdocs\wordpress\wp-content\plugins\wp-clean-up/wp_clean_up_admin.php:315
+#: F:\xampp\htdocs\wordpress\wp-content\plugins\wp-clean-up/wp_clean_up_admin.php:329
 msgid "Delete"
 msgstr "删除"
 
-#: F:\xampp\htdocs\wordpress\wp-content\plugins\wp-clean-up/wp_clean_up_admin.php:151
+#: F:\xampp\htdocs\wordpress\wp-content\plugins\wp-clean-up/wp_clean_up_admin.php:209
 msgid "Draft"
 msgstr "草稿"
 
-#: F:\xampp\htdocs\wordpress\wp-content\plugins\wp-clean-up/wp_clean_up_admin.php:165
+#: F:\xampp\htdocs\wordpress\wp-content\plugins\wp-clean-up/wp_clean_up_admin.php:223
 msgid "Auto Draft"
 msgstr "自动草稿"
 
-#: F:\xampp\htdocs\wordpress\wp-content\plugins\wp-clean-up/wp_clean_up_admin.php:179
+#: F:\xampp\htdocs\wordpress\wp-content\plugins\wp-clean-up/wp_clean_up_admin.php:237
 msgid "Moderated Comments"
 msgstr "待审评论"
 
-#: F:\xampp\htdocs\wordpress\wp-content\plugins\wp-clean-up/wp_clean_up_admin.php:193
+#: F:\xampp\htdocs\wordpress\wp-content\plugins\wp-clean-up/wp_clean_up_admin.php:251
 msgid "Spam Comments"
 msgstr "垃圾评论"
 
-#: F:\xampp\htdocs\wordpress\wp-content\plugins\wp-clean-up/wp_clean_up_admin.php:207
+#: F:\xampp\htdocs\wordpress\wp-content\plugins\wp-clean-up/wp_clean_up_admin.php:265
 msgid "Trash Comments"
 msgstr "回收站评论"
 
-#: F:\xampp\htdocs\wordpress\wp-content\plugins\wp-clean-up/wp_clean_up_admin.php:225
+#: F:\xampp\htdocs\wordpress\wp-content\plugins\wp-clean-up/wp_clean_up_admin.php:279
+msgid "Orphan Postmeta"
+msgstr "孤立的文章元信息"
+
+#: F:\xampp\htdocs\wordpress\wp-content\plugins\wp-clean-up/wp_clean_up_admin.php:293
+msgid "Orphan Commentmeta"
+msgstr "孤立的评论元信息"
+
+#: F:\xampp\htdocs\wordpress\wp-content\plugins\wp-clean-up/wp_clean_up_admin.php:307
+msgid "Orphan Relationships"
+msgstr "孤立的关系信息"
+
+#: F:\xampp\htdocs\wordpress\wp-content\plugins\wp-clean-up/wp_clean_up_admin.php:321
+msgid "Dashboard Transient Feed"
+msgstr "控制板订阅缓存"
+
+#: F:\xampp\htdocs\wordpress\wp-content\plugins\wp-clean-up/wp_clean_up_admin.php:339
 msgid "Delete All"
 msgstr "删除所有"
 
-#: F:\xampp\htdocs\wordpress\wp-content\plugins\wp-clean-up/wp_clean_up_admin.php:233
+#: F:\xampp\htdocs\wordpress\wp-content\plugins\wp-clean-up/wp_clean_up_admin.php:347
 msgid "Table"
 msgstr "数据表"
 
-#: F:\xampp\htdocs\wordpress\wp-content\plugins\wp-clean-up/wp_clean_up_admin.php:234
+#: F:\xampp\htdocs\wordpress\wp-content\plugins\wp-clean-up/wp_clean_up_admin.php:348
 msgid "Size"
 msgstr "大小"
 
-#: F:\xampp\htdocs\wordpress\wp-content\plugins\wp-clean-up/wp_clean_up_admin.php:269
+#: F:\xampp\htdocs\wordpress\wp-content\plugins\wp-clean-up/wp_clean_up_admin.php:384
 msgid "Total"
 msgstr "总计"
 
-#: F:\xampp\htdocs\wordpress\wp-content\plugins\wp-clean-up/wp_clean_up_admin.php:277
+#: F:\xampp\htdocs\wordpress\wp-content\plugins\wp-clean-up/wp_clean_up_admin.php:392
 msgid "Optimize"
 msgstr "优化数据库"
 
