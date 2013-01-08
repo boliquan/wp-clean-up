@@ -106,7 +106,7 @@ function wp_clean_up_count($type){
 }
 
 function wp_clean_up_optimize(){
-	$wcu_sql = 'SHOW TABLE STATUS FROM '.DB_NAME;
+	$wcu_sql = 'SHOW TABLE STATUS FROM `'.DB_NAME.'`';
 	$result = mysql_query($wcu_sql);
 	while($row = mysql_fetch_assoc($result)){
 		$wcu_sql = 'OPTIMIZE TABLE '.$row['Name'];
@@ -362,7 +362,7 @@ function wp_clean_up_optimize(){
 	<?php
 		$total_size = 0;
 		$alternate = " class='alternate'";
-		$wcu_sql = 'SHOW TABLE STATUS FROM '.DB_NAME;
+		$wcu_sql = 'SHOW TABLE STATUS FROM `'.DB_NAME.'`';
 		$result = mysql_query($wcu_sql);
 
 		while($row = mysql_fetch_assoc($result)){
