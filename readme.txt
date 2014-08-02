@@ -1,11 +1,11 @@
 === WP Clean Up ===
 Contributors: boliquan
-Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=SKA6TPPWSATKG&item_name=BoLiQuan&no_shipping=1&no_note=1&tax=0&currency_code=USD&lc=US&bn=PP%2dDonationsBF&charset=UTF%2d8
+Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=SCWY6NPFRR8EY
 Tags: wp clean up,wp cleanup,clean,cleaner,cleanup,database,mysql,comments,posts,post revisions,delete revision,wp cleaner,optimize,optimize database,revision,draft,auto draft,moderated,spam,trash,postmeta,commentmeta,relationships,transient feed,phpMyAdmin,orphan
 License: GPLv2
 Requires at least: 2.7
 Tested up to: 3.9.1
-Stable tag: 1.2.2
+Stable tag: 1.2.3
 
 WP Clean Up can help us to clean up the wordpress database by removing "revision" "draft" "auto draft" and so on.
 
@@ -49,7 +49,7 @@ Related Links:
 
 == Changelog ==
 
-= 1.2.2 =
+= 1.2.3 =
 
 * mysql_query is deprecated
 
@@ -67,7 +67,7 @@ Related Links:
 
 = 1.1.0 =
 
-* First release
+* First release.
 
 
 == Screenshots ==
